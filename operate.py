@@ -42,9 +42,9 @@ class Operator:
         return Course(self.login_session).get_courses()
 
     def badminton(
-            self, date: str, start_time: str, cd: int = 1, partner: list = None
+            self, date: str, start_time: str, court: dict, partner: dict
     ) -> str:
-        badminton = Badminton(self.login_session, date, start_time, cd, partner)
+        badminton = Badminton(self.login_session, date, start_time, court, partner)
         return badminton.run()
 
     def school_card(self, val: int, password: str) -> str:
@@ -69,7 +69,7 @@ class Operator:
     def public_course(self, query: list):
         worker = PublicCourse(self.login_session, query)
         worker.run()
+
     def hard_workding(self):
         worker = hardWorking(self.login_session)
         worker.run()
-        
